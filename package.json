@@ -1,0 +1,14 @@
+{
+  "name": "awesome-dash-websocket",
+  "version": "1.0.0",
+  "description": "Dash Websocket",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
