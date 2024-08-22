@@ -1,3 +1,5 @@
-import Server from "./src/server.js";
+import Server from './src/server.js'
 
-new Server().start().catch(e => console.log(e))
+const server = new Server()
+
+server.start().catch(console.error)
