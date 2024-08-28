@@ -23,14 +23,17 @@ export default class Server {
     socket.on('connection', (socket) => {
       const client = new Client(socket)
       this.#clients.push(client)
-      client.sendMessage('You are successfully connected to the Dash WebSocket server!')
+      client.sendMessage(JSON.stringify({
+        success: true,
+        message: 'You are successfully connected to the Dash WebSocket server!'
+      }))
     })
 
     console.log(`WebSocket server is running on ws://${host}:${port}`)
   }
 
   handleRawTx (hex) {
-    const transaction = new Dashcore.Transaction(hex)
+    const transaction = new Dashcore.Transaction(hex).toJSON()
     this.#clients.forEach(client => client.sendMessage(JSON.stringify(transaction)))
   }
 };
