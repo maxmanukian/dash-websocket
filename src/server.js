@@ -36,4 +36,4 @@ export default class Server {
     const transaction = new Dashcore.Transaction(hex).toJSON()
     this.#clients.forEach(client => client.sendMessage(JSON.stringify(transaction)))
   }
-};
+}
