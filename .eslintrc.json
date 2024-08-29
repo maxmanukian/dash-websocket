@@ -1,0 +1,21 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:mocha/recommended"
+  ],
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "prefer-const": "warn",
+    "quotes": ["error", "single"],
+    "indent": ["error", 2]
+  }
+}

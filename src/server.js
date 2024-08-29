@@ -13,14 +13,14 @@ export default class Server {
   }
 
   async start () {
-    const host = process.env.BIND_ADDRESS
-    const port = process.env.PORT
-    const socket = new WebSocketServer({
+    const host = 'localhost'
+    const port =  8787
+    this.wss = new WebSocketServer({
       port,
       host
     })
 
-    socket.on('connection', (socket) => {
+    this.wss.on('connection', (socket) => {
       const client = new Client(socket)
       this.#clients.push(client)
       client.sendMessage(JSON.stringify({
@@ -36,4 +36,4 @@ export default class Server {
     const transaction = new Dashcore.Transaction(hex).toJSON()
     this.#clients.forEach(client => client.sendMessage(JSON.stringify(transaction)))
   }
-};
+}
