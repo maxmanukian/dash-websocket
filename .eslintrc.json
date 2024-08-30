@@ -1,16 +1,11 @@
 {
   "env": {
-    "node": true,
-    "mocha": true
+    "node": true
   },
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:mocha/recommended"
-  ],
   "rules": {
     "no-undef": "error",
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],

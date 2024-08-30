@@ -8,6 +8,10 @@ on:
 jobs:
   lint_and_test:
     runs-on: ubuntu-22.04
+    env:
+      ZMQ_URL: ${{ secrets.ZMQURL }}
+      PORT: ${{ secrets.PORT }}
+      BIND_ADDRESS: ${{ secrets.BINDADDRESS }}
     steps:
       - uses: actions/checkout@v3
 

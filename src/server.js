@@ -13,14 +13,14 @@ export default class Server {
   }
 
   async start () {
-    const host = 'localhost'
-    const port =  8787
-    this.wss = new WebSocketServer({
+    const host = process.env.BIND_ADDRESS
+    const port = process.env.PORT
+    const socket = new WebSocketServer({
       port,
       host
     })
 
-    this.wss.on('connection', (socket) => {
+    socket.on('connection', (socket) => {
       const client = new Client(socket)
       this.#clients.push(client)
       client.sendMessage(JSON.stringify({
